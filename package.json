@@ -1,0 +1,14 @@
+{
+  "name": "@binsarjr/aicommit",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.2.1"
+  }
+}
