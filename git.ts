@@ -1,12 +1,11 @@
 import { $ } from "bun";
-import { consola } from "consola";
 
 export const checkIsGitRepo = async () => {
   if (
     (await $`git rev-parse --is-inside-work-tree`.quiet().text()).trim() !==
     "true"
   ) {
-    consola.error(
+    console.error(
       "fatal: not a git repository (or any of the parent directories): .git",
     );
     process.exit(1);

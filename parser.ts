@@ -1,6 +1,4 @@
 import { parseArgs } from "util";
-import { consola } from "consola"
-
 const { values } = parseArgs({
   args: Bun.argv,
   options: {
@@ -23,7 +21,7 @@ const { values } = parseArgs({
 });
 
 if (!values.apikey) {
-  consola.error("fatal: apikey is required");
+  console.error("fatal: apikey is required");
   process.exit(1);
 }
 
