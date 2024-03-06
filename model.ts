@@ -1,7 +1,7 @@
 import {
-    GoogleGenerativeAI,
-    HarmBlockThreshold,
-    HarmCategory,
+  GoogleGenerativeAI,
+  HarmBlockThreshold,
+  HarmCategory,
 } from "@google/generative-ai";
 import { config } from "./parser";
 
@@ -59,33 +59,33 @@ ${JSON.stringify(
     `.trim(),
   ];
 
-  if (config.emoji) {
-    prompts.push(
-      `
-Your commit message should also include the emoji corresponding to the change type at the very front of the commit message. The type-to-emoji JSON is below
-${JSON.stringify(
-  {
-    docs: "📝",
-    style: "💄",
-    refactor: "♻️",
-    perf: "⚡️",
-    test: "✅",
-    build: "🏗️",
-    ci: "🔁",
-    chore: "🔧",
-    revert: "⏪",
-    feat: "✨",
-    fix: "🚑",
+  //   if (config.emoji) {
+  //     prompts.push(
+  //       `
+  // Your commit message should also include the emoji corresponding to the change type at the very front of the commit message. The type-to-emoji JSON is below
+  // ${JSON.stringify(
+  //   {
+  //     docs: "📝",
+  //     style: "💄",
+  //     refactor: "♻️",
+  //     perf: "⚡️",
+  //     test: "✅",
+  //     build: "🏗️",
+  //     ci: "🔁",
+  //     chore: "🔧",
+  //     revert: "⏪",
+  //     feat: "✨",
+  //     fix: "🚑",
 
-  },
-  null,
-  2,
-)}
+  //   },
+  //   null,
+  //   2,
+  // )}
 
-Example: ✨feat: add new feature
-      `.trim(),
-    );
-  }
+  // Example: ✨feat: add new feature
+  //       `.trim(),
+  //     );
+  //   }
 
   prompts.push(
     `
