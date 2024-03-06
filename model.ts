@@ -1,7 +1,7 @@
 import {
-  GoogleGenerativeAI,
-  HarmBlockThreshold,
-  HarmCategory,
+    GoogleGenerativeAI,
+    HarmBlockThreshold,
+    HarmCategory,
 } from "@google/generative-ai";
 import { config } from "./parser";
 
@@ -65,13 +65,18 @@ ${JSON.stringify(
 Your commit message should also include the emoji corresponding to the change type at the very front of the commit message. The type-to-emoji JSON is below
 ${JSON.stringify(
   {
-    feat: "✨",
-    fix: "🚑",
     docs: "📝",
     style: "💄",
     refactor: "♻️",
+    perf: "⚡️",
     test: "✅",
+    build: "🏗️",
+    ci: "🔁",
     chore: "🔧",
+    revert: "⏪",
+    feat: "✨",
+    fix: "🚑",
+
   },
   null,
   2,
