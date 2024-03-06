@@ -1,4 +1,8 @@
-import { GoogleGenerativeAI } from "@google/generative-ai";
+import {
+  GoogleGenerativeAI,
+  HarmBlockThreshold,
+  HarmCategory,
+} from "@google/generative-ai";
 import { config } from "./parser";
 
 export const askCommit = async (diff: string, language = "en") => {
@@ -9,6 +13,24 @@ export const askCommit = async (diff: string, language = "en") => {
     generationConfig: {
       temperature: 0.2,
     },
+    safetySettings: [
+      {
+        category: HarmCategory.HARM_CATEGORY_DANGEROUS_CONTENT,
+        threshold: HarmBlockThreshold.BLOCK_NONE,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_HATE_SPEECH,
+        threshold: HarmBlockThreshold.BLOCK_NONE,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_HARASSMENT,
+        threshold: HarmBlockThreshold.BLOCK_NONE,
+      },
+      {
+        category: HarmCategory.HARM_CATEGORY_SEXUALLY_EXPLICIT,
+        threshold: HarmBlockThreshold.BLOCK_NONE,
+      },
+    ],
   });
 
   const prompts = `
