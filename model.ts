@@ -59,34 +59,6 @@ ${JSON.stringify(
     `.trim(),
   ];
 
-  //   if (config.emoji) {
-  //     prompts.push(
-  //       `
-  // Your commit message should also include the emoji corresponding to the change type at the very front of the commit message. The type-to-emoji JSON is below
-  // ${JSON.stringify(
-  //   {
-  //     docs: "📝",
-  //     style: "💄",
-  //     refactor: "♻️",
-  //     perf: "⚡️",
-  //     test: "✅",
-  //     build: "🏗️",
-  //     ci: "🔁",
-  //     chore: "🔧",
-  //     revert: "⏪",
-  //     feat: "✨",
-  //     fix: "🚑",
-
-  //   },
-  //   null,
-  //   2,
-  // )}
-
-  // Example: ✨feat: add new feature
-  //       `.trim(),
-  //     );
-  //   }
-
   prompts.push(
     `
 Given the following git diff, suggest a concise and descriptive commit message in ${language}:
@@ -96,5 +68,28 @@ Given the following git diff, suggest a concise and descriptive commit message i
 
   const response = await model.generateContent(prompts);
 
-  return response.response.text();
+  let result = response.response.text();
+
+  if (config.emoji) {
+    const emoji: any = {
+      docs: "📝",
+      style: "💄",
+      refactor: "♻️",
+      perf: "⚡️",
+      test: "✅",
+      build: "🏗️",
+      ci: "🔁",
+      chore: "🔧",
+      revert: "⏪",
+      feat: "✨",
+      fix: "🚑",
+    };
+    // get first word with regex \w+
+    const type = result.match(/\w+/)?.[0] || "";
+    if (type) {
+      result = `${emoji[type] || ""} ${result}`.trim();
+    }
+  }
+
+  return result;
 };
