@@ -1,6 +1,5 @@
 # aicommit
 
-
 Generate AI-powered Git commit messages with Gemini.
 
 Inspired by: https://github.com/Lapeyus/aicommit
@@ -8,7 +7,6 @@ Inspired by: https://github.com/Lapeyus/aicommit
 ## What it does
 
 `aicommit` helps you create informative and clear commit messages by utilizing the power of AI. It analyzes your code changes and suggests a concise and descriptive message based on its findings.
-
 
 ## Requirements
 
@@ -18,10 +16,7 @@ Inspired by: https://github.com/Lapeyus/aicommit
 
 ## Installation
 
-
 1. Clone the repository:
-
-
 
 ```bash
 git clone https://github.com/binsarjr/aicommit ~/.aicommit
@@ -35,15 +30,19 @@ git clone https://github.com/binsarjr/aicommit ~/.aicommit
 ## Usage
 
 1. Set up a global Git alias (recommended):
+
 ```bash
-git config --global alias.ai '!git add -A && git commit -am "$(bun ~/.aicommit/index.ts --apikey <YOUR_API_KEY>)"'
+git config --global alias.ai '!git commit -am "$(bun ~/.aicommit/index.ts --apikey <YOUR_API_KEY>)"'
 ```
+
 Replace `<YOUR_API_KEY>` with your actual Gemini API key. Now, you can simply run `git ai` to commit your changes with an AI-generated message.
 
 2. Set up a local Git alias (optional):
+
 ```bash
-git config alias.ai '!git add -A && git commit -am "$(bun ~/.aicommit/index.ts --apikey <YOUR_API_KEY>)"'
+git config alias.ai '!git commit -am "$(bun ~/.aicommit/index.ts --apikey <YOUR_API_KEY>)"'
 ```
+
 This alias will only work in the current repository.
 
 ### Additional options:
@@ -57,6 +56,7 @@ This alias will only work in the current repository.
 git add .
 git ai # Generates and commits message
 ```
+
 This will automatically stage your changes, utilize aicommit to generate a message based on your code and commit with that message.
 
 > Note: Remember to replace `<YOUR_API_KEY>` with your actual API key in both alias configurations.
