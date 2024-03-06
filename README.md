@@ -60,3 +60,6 @@ This will automatically stage your changes, utilize aicommit to generate a messa
 
 We run `git diff` to grab all your latest code changes, send them to Google Gemini, and then return the AI-generated commit message.
 
+## License
+
+MIT
