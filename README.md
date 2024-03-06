@@ -49,6 +49,7 @@ This alias will only work in the current repository.
 
 - `--language`: Specify the language of your code (default: en)
 - `--diff-per-file`: Show diff for each file before committing (default: false)
+- `--emoji`: Add an emoji to the commit message (default: false)
 
 ## Example usage
 

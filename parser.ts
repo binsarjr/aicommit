@@ -1,5 +1,5 @@
+import { consola } from "consola";
 import { parseArgs } from "util";
-import { consola } from "consola"
 
 const { values } = parseArgs({
   args: Bun.argv,
@@ -16,6 +16,10 @@ const { values } = parseArgs({
     apikey: {
       type: "string",
       required: true,
+    },
+    emoji: {
+      type: "boolean",
+      default: false,
     },
   },
   strict: true,

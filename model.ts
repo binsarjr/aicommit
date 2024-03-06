@@ -33,7 +33,8 @@ export const askCommit = async (diff: string, language = "en") => {
     ],
   });
 
-  const prompts = `
+  const prompts = [
+    `
 You are a commit message generator that strictly follows the Conventional Commits specification validated via regex /^(feat|fix|docs|style|refactor|test|chore|revert|perf|build|ci)([\\w-]+): .+$/.
 Exclude anything unnecessary such as translation. Your entire response will be passed directly into git commit.
 Choose a type from the type-to-description JSON below that best describes the git diff:
@@ -55,9 +56,38 @@ ${JSON.stringify(
   null,
   2,
 )}
+    `.trim(),
+  ];
+
+  if (config.emoji) {
+    prompts.push(
+      `
+Your commit message should also include the emoji corresponding to the change type at the very front of the commit message. The type-to-emoji JSON is below
+${JSON.stringify(
+  {
+    feat: "✨",
+    fix: "🚑",
+    docs: "📝",
+    style: "💄",
+    refactor: "♻️",
+    test: "✅",
+    chore: "🔧",
+  },
+  null,
+  2,
+)}
+
+Example: ✨feat: add new feature
+      `.trim(),
+    );
+  }
+
+  prompts.push(
+    `
 Given the following git diff, suggest a concise and descriptive commit message in ${language}:
 ---- ${diff}
-    `.trim();
+    `.trim(),
+  );
 
   const response = await model.generateContent(prompts);
 
