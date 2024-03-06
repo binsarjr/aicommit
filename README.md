@@ -1,6 +1,6 @@
 # aicommit
 
-inspired from https://github.com/Lapeyus/aicommit
+Inspired from https://github.com/Lapeyus/aicommit
 
 ## Requirements
 
@@ -10,7 +10,7 @@ inspired from https://github.com/Lapeyus/aicommit
 
 ## Usage
 
-clone this repo and run the following command
+Clone this repo and run the following command
 
 ```bash
 git clone https://github.com/binsarjr/aicommit ~/.aicommit
