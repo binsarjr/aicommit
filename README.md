@@ -1,5 +1,6 @@
 # aicommit
 
+
 Generate AI-powered Git commit messages with Gemini.
 
 Inspired by: https://github.com/Lapeyus/aicommit
@@ -7,6 +8,7 @@ Inspired by: https://github.com/Lapeyus/aicommit
 ## What it does
 
 `aicommit` helps you create informative and clear commit messages by utilizing the power of AI. It analyzes your code changes and suggests a concise and descriptive message based on its findings.
+
 
 ## Requirements
 
@@ -16,7 +18,10 @@ Inspired by: https://github.com/Lapeyus/aicommit
 
 ## Installation
 
+
 1. Clone the repository:
+
+
 
 ```bash
 git clone https://github.com/binsarjr/aicommit ~/.aicommit
